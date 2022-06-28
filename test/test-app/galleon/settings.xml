@@ -277,13 +277,13 @@
             <repositories>
                 <repository>
                     <id>jboss-eap-local-repository</id>
-                    <url>file:///tmp/src/maven-repository</url>
+                    <url>file:///tmp/src/eap-maven-repo/maven-repository</url>
                 </repository>
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
                     <id>jboss-eap-local-plugin-repository</id>
-                    <url>file:///tmp/src/maven-repository</url>
+                    <url>file:///tmp/src/eap-maven-repo/maven-repository</url>
                 </pluginRepository>
             </pluginRepositories>
         </profile>
