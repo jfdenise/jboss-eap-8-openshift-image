@@ -1,9 +1,14 @@
 build:
-  uri: https://github.com/jboss-container-images/jboss-eap-8-openshift-image
+  uri: https://github.com/jfdenise/jboss-eap-8-openshift-image
   mode: s2i
   contextDir: examples/eap/legacy-s2i-source-build
-  ref: 8.0.0.Beta
+  ref: legacy-example
+  pullSecret: brew-registry-redhat
   s2i:
+    jdk: "17"
+    jdk17:
+      builderImage: brew.registry.redhat.io/rh-osbs/jboss-eap-8-tech-preview-eap8-openjdk17-builder-openshift-rhel8:latest
+      runtimeImage: brew.registry.redhat.io/rh-osbs/jboss-eap-8-tech-preview-eap8-openjdk17-runtime-openshift-rhel8:latest
     featurePacks:
       - org.jboss.eap:wildfly-ee-galleon-pack
       - org.jboss.eap.cloud:eap-cloud-galleon-pack
@@ -11,5 +16,9 @@ build:
       - jaxrs-server
     channels:
       - org.jboss.eap.channels:eap-8.0-beta
+  env:
+    - name: GALLEON_MAVEN_ARGS
+      value: -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.insecure=true
+
 deploy:
   replicas: 1
