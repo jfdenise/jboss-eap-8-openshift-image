@@ -277,13 +277,13 @@
             <repositories>
                 <repository>
                     <id>jboss-eap-cluster-repository</id>
-                    <url>http://eap-maven-repo.jdenise-dev.svc.cluster.local:4443</url>
+                    <url>https://eap-maven-repo.jdenise-dev.svc.cluster.local:4443</url>
                 </repository>
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
                     <id>jboss-eap-cluster-plugin-repository</id>
-                    <url>http://eap-maven-repo.jdenise-dev.svc.cluster.local:4443</url>
+                    <url>https://eap-maven-repo.jdenise-dev.svc.cluster.local:4443</url>
                 </pluginRepository>
             </pluginRepositories>
         </profile>
