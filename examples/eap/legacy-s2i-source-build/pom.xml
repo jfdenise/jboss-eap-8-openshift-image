@@ -14,6 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jakarta.jakartaee-api.version>10.0.0</jakarta.jakartaee-api.version>
         <version.maven.war.plugin>3.3.2</version.maven.war.plugin>
+        <eap.maven.repo>https://maven.repository.redhat.com/earlyaccess/all/</eap.maven.repo>
     </properties>
     
     <dependencies>
@@ -24,8 +25,20 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>mrrc-ea</id>
+            <url>${eap.maven.repo}</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>mrrc-ea</id>
+            <url>${eap.maven.repo}</url>
+        </pluginRepository>
+    </pluginRepositories>
 
-  
+
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
