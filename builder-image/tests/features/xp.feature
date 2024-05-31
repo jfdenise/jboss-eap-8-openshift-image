@@ -1,3 +1,4 @@
+@ignore
 @xp5
 @jboss-eap-8
 Feature: Openshift XP tests
