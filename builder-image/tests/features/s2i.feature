@@ -29,7 +29,7 @@ Feature: EAP s2i tests
     Then file /opt/server/modules/org/foo/bar/test.txt should contain hello
 
   Scenario: Test custom settings with galleon
-    Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/test-app-settings with env and true using eap8-dev
+    Given s2i build https://github.com/jfdenise/jboss-eap-8-openshift-image from test/test-app-settings with env and true using internal-tests
     | variable                             | value         |
     ### PLACEHOLDER FOR CLOUD CUSTOM TESTING ###
     Then s2i build log should contain /home/jboss/.m2/settings.xml
