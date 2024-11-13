@@ -1,0 +1,24 @@
+schema_version: 1
+
+name: &imgName "jboss-eap-8/eap8-openjdk21-runtime-openshift-rhel8"
+description: "The JBoss EAP 8 OpenJDK 21 runtime image"
+
+labels:
+    - name: "org.jboss.product"
+      value: "eap8-openjdk21-runtime"
+    - name: "com.redhat.component"
+      value: "jboss-eap8-openjdk21-runtime-openshift-container"
+
+envs:
+    - name: IMAGE_NAME
+      value: *imgName
+
+modules:
+      repositories:
+          - name: openjdk
+            git:
+              url: https://github.com/rh-openjdk/redhat-openjdk-containers
+              ref: wildfly-container-30.0
+      install:
+          - name: jboss.container.openjdk.jdk
+            version: "21"

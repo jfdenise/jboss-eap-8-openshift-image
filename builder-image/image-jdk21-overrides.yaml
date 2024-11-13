@@ -1,0 +1,28 @@
+schema_version: 1
+
+name: &imgName "jboss-eap-8/eap8-openjdk21-builder-openshift-rhel8"
+labels:
+    - name: "org.jboss.product"
+      value: "eap8-openjdk21-builder"
+    - name: "com.redhat.component"
+      value: "jboss-eap8-openjdk21-builder-openshift-container"
+    - name: name
+      value: *imgName
+
+envs:
+    - name: IMAGE_NAME
+      value: *imgName
+
+modules:
+      repositories:
+          - name: openjdk
+            git:
+              url: https://github.com/rh-openjdk/redhat-openjdk-containers
+              ref: wildfly-container-30.0
+      install:
+          - name: jboss.container.openjdk.jdk
+            version: "21"
+          - name: jboss.container.maven
+            version: "3.8.17"
+          # Required to remove JDK17
+          - name: jboss.container.java.singleton-jdk
