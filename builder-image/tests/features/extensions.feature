@@ -3,7 +3,7 @@
 Feature: EAP extensions tests
 
   Scenario: Build server image
-    Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/test-app-advanced-extensions with env and True using eap8-dev
+    Given s2i build https://github.com/jfdenise/jboss-eap-8-openshift-image from test/test-app-advanced-extensions with env and True using 8.1-channel-tests
     | variable                             | value         |
     ### PLACEHOLDER FOR CLOUD CUSTOM TESTING ###
     Then exactly 2 times container log should contain WFLYSRV0025:

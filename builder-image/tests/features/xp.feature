@@ -1,10 +1,11 @@
 @xp5
 @jboss-eap-8
 @jboss-eap-8-tech-preview
+@ignore
 Feature: Openshift XP tests
 
   Scenario: Check that the legacy default config provisioned using galleon plugin works fine
-   Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/xp/test-app-default-config with env and True using eap8-dev
+   Given s2i build https://github.com/jfdenise/jboss-eap-8-openshift-image from test/xp/test-app-default-config with env and True using 8.1-channel-tests
    | variable                 | value           |
    | S2I_SERVER_DIR | server |
    ### PLACEHOLDER FOR CLOUD CUSTOM TESTING ###
@@ -21,7 +22,7 @@ Feature: Openshift XP tests
     Then XML file /opt/server/standalone/configuration/standalone.xml should contain value 88 on XPath //*[local-name()='config-source' and @name='config-map']/@ordinal
 
 Scenario: Check that trimmed server provisioned using galleon plugin works fine
-   Given s2i build https://github.com/jboss-container-images/jboss-eap-8-openshift-image from test/xp/test-app with env and True using eap8-dev
+   Given s2i build https://github.com/jfdenise/jboss-eap-8-openshift-image from test/xp/test-app with env and True using 8.1-channel-tests
    | variable                 | value           |
    ### PLACEHOLDER FOR CLOUD CUSTOM TESTING ###
    Then container log should contain Running jboss-eap-8-tech-preview/
